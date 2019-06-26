@@ -12,18 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.neusoft.services.impl.Ab01ServiceImpl;
 import com.neusoft.system.tools.Tools;
 
-
-@WebServlet("/addEmp.html")
-public class AddEmpServerlet extends HttpServlet{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+@WebServlet ("deleteEmp.html")
+public class DeleteEmpServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		try {
 			Map<String, Object> dto = Tools.createDto(request);
 			Ab01ServiceImpl services = new Ab01ServiceImpl(dto);
-			String msg = services.addEmp()? "success": "wrong";
+			String msg = services.deleteEmp()? "É¾³ý³É¹¦": "É¾³ýÊ§°Ü";
 			request.setAttribute("msg", msg);
 			
 		}catch(Exception e){
